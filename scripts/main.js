@@ -21,7 +21,7 @@ function setUserName() {
 }
 
 if(!localStorage.getItem('name')) {
-  setUserName();
+  myHeading.textContent = 'This is Chris\' website.';
 } else {
   var storedName = localStorage.getItem('name');
   myHeading.textContent = 'This is ' + storedName + '\'s website.';
