@@ -55,9 +55,25 @@ p {
 main {
   width: 600px;
   margin: 0 auto;
+    font-size: 16px;    
  
   padding: 0 20px 20px 20px; 
   /*border: 5px solid black;*/
+}
+
+article header {
+    font-size: 16px;    
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+article p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+li {  
+    font-size:15px;
 }
 
 img {
