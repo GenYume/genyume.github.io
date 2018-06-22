@@ -5,6 +5,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="styles/style.css" rel="stylesheet" type="text/css">
         <title>Optimize Projects</title>
+        <script async src="scripts/game.js"></script>
     </head>
     <body>
         <header>
@@ -19,6 +20,19 @@
             </ul>
         </nav>
         <main>
+            <article class="gg">
+                <header><h2>Number Guessing game</h2></header>
+                <p>I've selected a random number between 1 and 100. See if you can guess it in less than 10 tries. Do not worry, I'll guide you through this game.</p>
+                <div class="form">
+                  <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+                  <input type="submit" value="Submit guess" class="guessSubmit">
+                </div>
+                <div class="resultParas">
+                  <p class="guesses"></p>
+                  <p class="lastResult"></p>
+                  <p class="lowOrHi"></p>
+                </div>
+            </article>
         </main>
     </body>
 </html>
