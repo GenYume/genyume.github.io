@@ -2,10 +2,10 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="styles/style.css" rel="stylesheet" type="text/css">
         <title>Optimize Projects</title>
-        <script async src="scripts/game.js"></script>
+        <script defer src="scripts/game.js"></script>
         <script src="https://d3js.org/d3.v5.min.js"></script>
     </head>
     <body>
@@ -21,6 +21,27 @@
             </ul>
         </nav>
         <main>
+            <article class="gg">
+                <header><h2>Number Guessing game</h2></header>
+                <p>I've selected a random number between 1 and 100. See if you can guess it in less than 10 tries. Do not worry, I'll guide you through this game.</p>
+                <div class="form">
+                  <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+                  <input type="submit" value="Submit guess" class="guessSubmit">
+                </div>
+                <div class="resultParas">
+                  <p class="guesses"></p>
+                  <p class="lastResult"></p>
+                  <p class="lowOrHi"></p>
+                </div>
+            </article>
+            <article class="abba">
+                <header><h2>Understanding a bad investment</h2></header>
+                <p>In this section, I will set out to break down and undestand the variations of my Life Insurance and ultimately see what I should change to optimize it.</p>
+                <p>My Life Insurance has been set up at the end of May 2017.<br>
+                  I've deposited 500 euros on it monthly between May 2017 and June 2017.<br>
+                  Here is the breakdown of my portfolio :
+                </p>
+            </article>
             <article class="ssm2">
                 <header><h2>Law in 3 states</h2></header>
                 <svg width="960" height="500"></svg>
@@ -42,8 +63,8 @@
                         .x(function(d) { return x(d.year); })
                         .y(function(d) { return y(d.law); });
 
-                    
-                    d3.csv("sets/ssm2.csv", type).then(function(data) {                     
+
+                    d3.csv("sets/ssm2.csv", type).then(function(data) {
                       var cities = data.columns.slice(1).map(function(id) {
                           return {
                           id: id,
@@ -109,7 +130,7 @@
                 <script type="text/javascript"charset="utf-8">
                     d3.text("https://raw.githubusercontent.com/zonination/samesmarriage/master/ssm.csv").then(function(data) {
                         var parsedCSV = d3.csvParseRows(data);
-                       
+
                         var container = d3.select(".ssm")
                             .append("table")
 
@@ -124,19 +145,6 @@
                     });//v5
                 </script>
             </article>-->
-            <article class="gg">
-                <header><h2>Number Guessing game</h2></header>
-                <p>I've selected a random number between 1 and 100. See if you can guess it in less than 10 tries. Do not worry, I'll guide you through this game.</p>
-                <div class="form">
-                  <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
-                  <input type="submit" value="Submit guess" class="guessSubmit">
-                </div>
-                <div class="resultParas">
-                  <p class="guesses"></p>
-                  <p class="lastResult"></p>
-                  <p class="lowOrHi"></p>
-                </div>
-            </article>
         </main>
     </body>
 </html>
