@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-var article = document.querySelector(".gg"); 
+var article = document.querySelector(".gg");
 
 var randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -21,10 +21,10 @@ function checkGuess() {
     guesses.textContent = 'Previous guesses: ';
   }
   guesses.textContent += userGuess + ' ';
- 
+
   if (userGuess === randomNumber) {
     lastResult.textContent = 'Congratulations! You got it right!';
-    lastResult.style.backgroundColor = 'green';
+    lastResult.style.backgroundColor = '#4CAF50';
     lowOrHi.textContent = '';
     setGameOver();
   } else if (guessCount === 10) {
@@ -39,7 +39,7 @@ function checkGuess() {
       lowOrHi.textContent = 'Last guess was too high!';
     }
   }
- 
+
   guessCount++;
   guessField.value = '';
   guessField.focus();
