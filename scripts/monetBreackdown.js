@@ -2,7 +2,7 @@
 
 d3.text("../sets/portfolio.csv").then(function(data) {
     var parsedCSV = d3.csvParseRows(data);
-console.log(parsedCSV[0]);
+    
     var container = d3.select(".breackdown")
         .append("table")
 
