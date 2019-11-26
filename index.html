@@ -1,228 +1,1047 @@
-<!DOCTYPE HTML>
 
+<!DOCTYPE HTML>
 <html>
 	<head>
-	<meta name="generator" content="Hugo 0.52" />
-		<title>Prologue</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" href="/css/main.css" />
-		
-		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <!--<title>Dashboard Répartition Sociétaires</title><!-- cdf-bootstrap-script-includes ->		<script language="javascript" type="text/javascript" src="/pentaho/api/repos/pentaho-cdf/js/cdf-bootstrap-script-includes.js?v=89e756643b3b7605a6684e60b2060333"></script>-->
+          <title>Dashboard Répartition Sociétaires</title><!-- cdf-bootstrap-script-includes -->		<script language="javascript" type="text/javascript" src="/pentaho-cdf/js/cdf-bootstrap-script-includes.js"></script>
+<!-- cdf-bootstrap-ie8script-includes --><!--[if lte IE 8]>
+		<script language="javascript" type="text/javascript" src="/pentaho/api/repos/pentaho-cdf/js-legacy/lib/html5shiv/html5shiv.js?v=ee68da404bd6cbdab3adb3bf9219c207"></script>
+<![endif]-->
+<!-- cdf-bootstrap-style-includes ->		<link href="/pentaho/api/repos/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=a175f8db01177a335ba9766a6b8c1225" rel="stylesheet" type="text/css" />-->
+<!-- cdf-bootstrap-style-includes -->		<link href="/pentaho-cdf/css/cdf-bootstrap-style-includes.css?v=a175f8db01177a335ba9766a6b8c1225" rel="stylesheet" type="text/css" />
+<!-- bootstrap.css.map --><!-- cdf-bootstrap-ie8scriptAfterLink-includes --><!--[if lte IE 8]>
+		<script language="javascript" type="text/javascript" src="/pentaho/api/repos/pentaho-cdf/js-legacy/lib/respond/respond.js?v=c03b5dcc8955c34fa65e59e7e7daacf0"></script>
+<![endif]->
+  <script language="javascript" type="text/javascript" src="/pentaho/api/repos/pentaho-cdf-dd/js/CDF.js?v=0de4f6ffa9ae93b0421f5fbbdd0c0bcc"></script>
+  <link href="/pentaho/api/repos/pentaho-cdf-dd/css/CDF-CSS.css?v=68c579622444ce29beb75d01b69ff0e1" rel="stylesheet" type="text/css" />
+        <![endif]-->
+  <script language="javascript" type="text/javascript" src="/pentaho-cdf-dd/js/CDF.js?v=0de4f6ffa9ae93b0421f5fbbdd0c0bcc"></script>
+  <link href="/pentaho-cdf-dd/css/CDF-CSS.css?v=68c579622444ce29beb75d01b69ff0e1" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="oeuvres.css" />
+
+<script language="javascript" type="text/javascript">
+Dashboards.context = {
+  "locale": "en_US",
+  "params": {},
+  "path": "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.wcdf",
+  "queryData": {},
+  "roles": [
+    "Administrator",
+    "Authenticated",
+    "DBPentApl-Pentaho-admin",
+    "DBPentDSI",
+    "DBPentOLAP-Restricted"
+  ],
+  "serverLocalDate": 1574783519777,
+  "serverUTCDate": 1574779919777,
+  "sessionAttributes": {},
+  "sessionTimeout": 7200,
+  "user": "amegashiec"
+}
+Dashboards.initialStorage = {}
+
+</script>
+
 	</head>
 	<body>
+		<!--<script language="javascript">
+			// Init jQuery i18n plugin
+			loadMessageBundles = function(lang) {
+				jQuery.i18n.properties({
+					name:'messages',
+					path:'/pentaho-cdf-dd/tmp/test/local/',
+					mode:'both',
+					language:(lang == 'browser' ? jQuery.i18n.browserLang() : lang),
+					callback: function() {
+						
+					}
+				});
+				Dashboards.setI18nSupport('en-US', jQuery.i18n);
+			}
 
+			$(document).ready(function(){
+				// Initialize jquery.i18n plugin - load message files
+				var userLocale = 'en-US';
+				var formProvider = cdo.format.language(userLocale);
+				cdo.format.language(formProvider);
+				moment.locale(userLocale);
+				loadMessageBundles(userLocale);
+			});
+		</script>-->
+	
 		
-			<div id="header">
+  <div class='container'>
+    <link rel="stylesheet" type="text/css" href="/pentaho-cdf-dd/api/resources/assets/selectize/selectize.bootstrap3.css?v=1574779919758" />
+    
+    <script language="javascript" type="text/javascript" src="/pentaho-cdf-dd/api/resources/assets/selectize/selectize.min.js?v=1574779919758"></script>
+    
+    <script language="javascript" type="text/javascript" src="/pentaho-cdf-dd/api/resources/assets/chartjs/Chart.bundle.min.js?v=1574779919758"></script>
+    
+    <script language="javascript" type="text/javascript" src="/pentaho-cdf-dd/api/resources/assets/chartjs/chartjs-plugin-datalabels.min.js?v=1574779919758"></script>
+    
+    <script language="javascript" type="text/javascript" src="/pentaho-cdf-dd/api/resources/assets/js/numeral.min.js?v=1574779919758"></script>
+    
+    <style>
+<!--
+.containerLineBar {
+    display: grid;
+    justify-content: center;
+    font-family: inherit;
+}
 
-				<div class="top">
+.toggleLineBar {
+    position: relative;
+    border: solid 3px #89c4f4;
+    border-radius: 55px;
+    transition: transform cubic-bezier(0, 0, 0.30, 2) .4s;
+    transform-style: preserve-3d;
+}
 
-					
-						<div id="logo">
-							<span class="image avatar48"><img src="img/avatar.jpg" alt="" /></span>
-							<h1 id="title">Jane Doe</h1>
-							<p>Hyperspace Engineer</p>
-						</div>
+.toggleLineBar>input[type="radio"] {
+    display: none;
+}
 
-					
-						<nav id="nav">
-							
-							<ul>
-								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
+.toggleLineBar>#choice1:checked~#flapLineBar {
+    transform: rotateY(-180deg);
+}
 
-				</div>
+.toggleLineBar>#choice1:checked~#flapLineBar>.content {
+    transform: rotateY(-180deg);
+}
 
-				<div class="bottom">
+.toggleLineBar>#choice2:checked~#flapLineBar {
+    transform: rotateY(0deg);
+}
 
-					
-						<ul class="icons">
-              
-              <li><a href="#" class="icon fa-twitter"><span class="label">twitter</span></a></li>
-              
-              <li><a href="#" class="icon fa-facebook"><span class="label">facebook</span></a></li>
-              
-              <li><a href="#" class="icon fa-github"><span class="label">github</span></a></li>
-              
-              <li><a href="#" class="icon fa-dribbble"><span class="label">dribbble</span></a></li>
-              
-              <li><a href="#" class="icon fa-envelope"><span class="label">email</span></a></li>
-              
-						</ul>
+.toggleLineBar>label {
+    position: relative;
+    display: inline-block;
+    min-width: 70px;
+    padding-top: 2px;
+    text-align: center;
+    color: #89c4f4;
+    cursor: pointer;
+}
 
-				</div>
+.toggleLineBar>label,
+.toggleLineBar>#flapLineBar {
+    font-weight: bold;
+    text-transform: capitalize;
+}
 
+.toggleLineBar>#flapLineBar {
+    color: #fff;
+    position: absolute;
+    top:  calc(0px - 3px);
+    left: 50%;
+    height: calc(100% + 6px);
+    width: 50%;
+    display: grid;
+    text-align: center;
+    padding-top: 4px;
+    font-size: 15px;
+    background-color: #89c4f4;
+    border-top-right-radius: 55px;
+    border-bottom-right-radius: 55px;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) .5s;
+}
+
+.toggle>#flap>.content {
+    color: #333;
+    transition: transform 0s linear .25s;
+    transform-style: preserve-3d;
+}
+
+.row {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    display: inline;
+    padding-left: 15px;
+}
+
+/* CHeckboxes Style */
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .15em; left: .22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
+} 
+
+
+
+
+/*Nouveau Beaujolais*/
+
+
+
+/**/ 
+
+/**/ 
+-->
+</style>
+    
+    <script language="javascript" type="text/javascript">
+window.chartColors = {
+    jordyBlue: '#89c4f4aa',
+    hokiGrey: '#67809faa',
+    waxFlowerRed: '#f1a9a0aa',
+    ebonyClayBlue: '#22313faa',
+    whiteSmokeGrey: '#ecececaa',
+    vividTangerineRed: '#ff9478aa'
+};
+
+var myPalette=[
+    window.chartColors.vividTangerineRed
+    ,window.chartColors.jordyBlue
+    ,window.chartColors.hokiGrey
+    ,window.chartColors.waxFlowerRed
+    ,window.chartColors.ebonyClayBlue
+    ,window.chartColors.whiteSmokeGrey
+];
+
+var myBarChart;
+
+function removeBarChartData() {
+    console.log('in removeBarChartData');
+    if(myBarChart)
+        myBarChart.destroy();
+} 
+
+function buildNewChart(canvasid, newLabels, barChartData) {
+    removeBarChartData();
+    
+    var ctx = document.getElementById(canvasid).getContext('2d');
+    myBarChart = new Chart(ctx, {
+		type: 'line',
+        data: {
+            labels: newLabels,
+            datasets: barChartData
+            },
+		options: {
+            plugins: {
+                datalabels: {
+                    display: false/*
+					backgroundColor: function(context) {
+						return context.active ? context.dataset.backgroundColor : 'white';
+					},
+					borderColor: function(context) {
+						return context.dataset.backgroundColor;
+					},
+					borderRadius: function(context) {
+						return context.active ? 0 : 32;
+					},
+					borderWidth: 1,
+					color: function(context) {
+						return context.active ? 'white' : context.dataset.backgroundColor;
+					},
+					font: {
+						weight: 'bold'
+					},
+					formatter: function(value, context) {
+						value = Math.round(value * 100) / 100;
+                        value = Math.round(value);
+                        if(value>0)
+                            return numeral(value).format('(0.00 a$)');
+                        else
+                            return '';
+						/*return Math.round(value);context.active
+							? context.dataset.label + '\n' + value + '%'
+							: Math.round(value);/
+					},
+					offset: 8,
+					textAlign: 'center'*/
+				}
+			},
+			title: {
+				display: false,
+				text: 'Chart.js Bar Chart - Stacked'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: false
+			},
+			responsive: true,
+			scales: {
+				xAxes: [{
+					stacked: true,
+				}],
+				yAxes: [{
+					stacked: false,
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                            return numeral(value).format('(0.0 a$)');
+                        }
+                    }
+				}]
+			}
+		}
+	});
+}
+
+
+function change(newType) {
+  var ctx = document.getElementById("myBarChart").getContext("2d");
+
+  // Remove the old chart and all its event handles
+  if (myBarChart) {
+    myBarChart.destroy();
+  }
+
+  // Chart.js modifies the object you pass in. Pass a copy of the object so we can use the original object later
+  var temp = jQuery.extend(true, {}, myBarChart.config);
+  temp.type = newType;
+  
+  if (newType == 'bar') {
+    temp.options.scales.yAxes[0].stacked = true
+  }
+  else {
+    temp.options.scales.yAxes[0].stacked = false;
+  }
+  
+  myBarChart = new Chart(ctx, temp);
+}
+
+function setBarChart(chart){
+    myBarChart=chart;
+} 
+
+function animateToggle() {
+    const st = {};
+    
+    st.flap = document.querySelector('#flapLineBar');
+    st.toggle = document.querySelector('.toggleLineBar');
+    
+    st.choice1 = document.querySelector('#choice1');
+    st.choice2 = document.querySelector('#choice2');
+    
+    st.flap.addEventListener('transitionend', () => {    
+        if (st.choice1.checked) {
+            st.toggle.style.transform = 'rotateY(-15deg)';
+            change('bar');
+            setTimeout(() => st.toggle.style.transform = '', 400);
+        } else {
+            st.toggle.style.transform = 'rotateY(15deg)';
+            change('line');
+            setTimeout(() => st.toggle.style.transform = '', 400);
+        }
+    })
+    
+    st.clickHandler = (e) => {
+    
+        if (e.target.tagName === 'LABEL') {
+            setTimeout(() => {
+                st.flap.children[0].textContent = e.target.textContent;
+            }, 250);
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        st.flap.children[0].textContent = st.choice2.nextElementSibling.textContent;
+    });
+    
+    document.getElementById('LineBarColumn').addEventListener('click', (e) => st.clickHandler(e));
+}
+
+
+
+
+function ide12prefun(data) {
+    var innerHTML='<select id="selectizeOEUVRE" multiple>';
+    innerHTML+='<option value="">Choisir une ou plusieurs Oeuvre(s)...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlOEUVRE").html(innerHTML);
+    
+    var $select;
+    // Init Selectize object
+    $select = $('#selectizeOEUVRE').selectize({
+    });
+    
+    var select  = $select[0].selectize;
+    select.disable();
+}
+
+function utilprefun(data) {
+    var innerHTML='<select id="selectizeUTILISATEUR" multiple>';
+    innerHTML+='<option value="">Choisir un ou plusieurs Utilisateur(s)...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlUTILISATEUR").html(innerHTML);
+    
+    var $select;
+    // Init Selectize object
+    $select = $('#selectizeUTILISATEUR').selectize({
+    });
+    var select  = $select[0].selectize;
+    select.disable();
+} 
+
+function paysprefun(data) {
+    var innerHTML='<select id="selectizePAYS" multiple>';
+    innerHTML+='<option value="">Choisir un Territoire...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlPAYS").html(innerHTML);
+    
+    var $select;
+    // Init Selectize object
+    $select = $('#selectizePAYS').selectize({
+    });
+    var select  = $select[0].selectize;
+    select.disable();
+} 
+
+function familleprefun(data) {
+    var innerHTML='<select id="selectizeFAMILLE" multiple>';
+    innerHTML+='<option value="">Choisir une Famille...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlFAMILLE").html(innerHTML);
+    
+    var $select;
+    // Init Selectize object
+    $select = $('#selectizeFAMILLE').selectize({
+    });
+    var select  = $select[0].selectize;
+    select.disable();
+} 
+
+// load a locale
+numeral.register('locale', 'fr', {
+    delimiters: {
+        thousands: ' ',
+        decimal: ','
+    },
+    abbreviations: {
+        thousand: 'k',
+        million: 'm',
+        billion: 'b',
+        trillion: 't'
+    },
+    ordinal : function (number) {
+        return number === 1 ? 'er' : 'ème';
+    },
+    currency: {
+        symbol: '€'
+    }
+});
+
+// switch between locales
+numeral.locale('fr'); 
+</script>
+    
+    <div id='Window'  class='row clearfix ' >
+    </div>
+    <div id='3c8ed169-c99b-8b8a-d74e-12c20d935699'  class='panel panel-default ' >
+      <div id='9bd7643b-d5ca-8c80-c117-6ed45a4475bc'  class='panel-heading ' >
+      </div>
+      <div id='7e2097ba-0e9f-7600-1bce-7e4a726bd66e'  class='panel-body ' >
+        <div id='COADHeaderRow'  class='row clearfix ' >
+          <div class='col-xs-12 last'><div id='htmlCOAD' >
+          </div></div>
+        </div>
+        <hr  class='space '  style='height:px;' >
+        </hr>
+        <div id='CDEDESTHeaderRow'  class='row clearfix ' >
+          <div class='col-xs-12 last'><div id='htmlCDEDEST'  style='text-align:center;' >
+          </div></div>
+        </div>
+        <hr  class='space '  style='height:px;' >
+        </hr>
+        <div id='FilterAndGraphRow'  class='row clearfix ' >
+          <div class='col-xs-3'><div id='FilterColumn' >
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='htmlOeuvreComplexes'  class='row clearfix ' >
+              <div class='col-xs-12 last'><div id='5a7efcbe-f4ad-b749-ce1b-76aa6ad3691b'  style='height:150px;' >
+                <div class="continput">
+    <div class="Titre">Mes Oeuvres</div>
+	<ul class="blbb">
+		<li class="blcc">
+			<input type="radio" name="1" class ="bloo">
+			<label class="blaa">Audiovisuelles</label>
+			<div class="bullet">
+				<div class="line zero"></div>
+				<div class="line one"></div>
+				<div class="line two"></div>
+				<div class="line three"></div>
+				<div class="line four"></div>
+				<div class="line five"></div>
+				<div class="line six"></div>
+				<div class="line seven"></div>
 			</div>
-
-		
-			<div id="main">
-
-				
-					<section id="top" class="one dark cover">
-						<div class="container">
-
-							<header>
-								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
-								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-								<p>Ligula scelerisque justo sem accumsan diam quis<br />
-								vitae natoque dictum sollicitudin elementum.</p>
-							</header>
-
-							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
-							</footer>
-
-						</div>
-					</section>
-
-				
-					<section id="portfolio" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Portfolio</h2>
-							</header>
-
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
-							egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
-							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
-							fusce hendrerit lacus ridiculus.</p>
-
-
-              <div class="row">
-                <div class="4u 12u$(mobile)">
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic02.jpg" alt="" /></a>
-                    <header>
-                      <h3>Ipsum Feugiat</h3>
-                    </header>
-                  </article>
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic03.jpg" alt="" /></a>
-                    <header>
-                      <h3>Rhoncus Semper</h3>
-                    </header>
-                  </article>
-                  
-                </div>
-
-                <div class="4u 12u$(mobile)">
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic04.jpg" alt="" /></a>
-                    <header>
-                      <h3>Magna Nullam</h3>
-                    </header>
-                  </article>
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic05.jpg" alt="" /></a>
-                    <header>
-                      <h3>Natoque Vitae</h3>
-                    </header>
-                  </article>
-                  
-                </div>
-
-                <div class="4u 12u$(mobile)">
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic06.jpg" alt="" /></a>
-                    <header>
-                      <h3>Dolor Penatibus</h3>
-                    </header>
-                  </article>
-                   
-                  <article class="item">
-                    <a href="#" class="image fit"><img src="img/pic07.jpg" alt="" /></a>
-                    <header>
-                      <h3>Orci Convallis</h3>
-                    </header>
-                  </article>
-                  
-                </div>
-              </div>
-
-
-						</div>
-					</section>
-
-				
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<a href="#" class="image featured"><img src="img/about.jpg" alt="" /></a>
-
-							<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
-							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
-							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
-							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
-							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
-							ornare iaculis.</p>
-
-						</div>
-					</section>
-
-				
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
-							<form method="post" action="#">
-								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="12u$">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="12u$">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
-						</div>
-					</section>
-
+		</li>
+		<li class="blcc">
+			<input type="radio" name="1" class ="bloo">
+			<label class="blaa">Musicales</label>
+			<div class="bullet">
+				<div class="line zero"></div>
+				<div class="line one"></div>
+				<div class="line two"></div>
+				<div class="line three"></div>
+				<div class="line four"></div>
+				<div class="line five"></div>
+				<div class="line six"></div>
+				<div class="line seven"></div>
 			</div>
+		</li>
+	</ul>
+</div> 
+                
+              </div></div>
+            </div>
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='htmlFAMILLE'  class='row clearfix ' >
+            </div>
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='htmlUTILISATEUR'  class='row clearfix ' >
+            </div>
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='htmlOEUVRE'  class='row clearfix ' >
+            </div>
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='htmlPAYS'  class='row clearfix ' >
+            </div>
+            <hr  class='space '  style='height:px;' >
+            </hr>
+            <div id='82d4d955-9619-2fd9-286d-a2c61ea86a5c'  class='row clearfix ' >
+            </div>
+          </div></div>
+          <div class='col-xs-9 last'><div id='RadioAndGraphColumn' >
+            <div id='RadioRow'  class='row clearfix ' >
+              <div class='col-xs-8'><div id='htmlRADIOSERIE' >
+              </div></div>
+              <div class='col-xs-4 last'><div id='LineBarColumn' >
+                <div class="containerLineBar">
+    <form class="toggleLineBar">
+        <input type="radio" id="choice1" name="choice" value="creative">
+        <label for="choice1">Bar</label>
+        <input type="radio" id="choice2" name="choice" value="productive">
+        <label for="choice2">Line</label>
+        <div id="flapLineBar"><span class="content">Line</span></div>
+    </form>
+</div> 
+                
+              </div></div>
+            </div>
+            <div id='GraphRow'  class='row clearfix ' >
+              <div class='col-xs-12 last'><div id='181c7866-3eb9-4288-74e9-3af787229a00' >
+                <canvas id="myBarChart" width="768" height="576" class="chartjs-render-monitor" style="display: block; width: 754px; height: 377px;"></canvas> 
+                
+              </div></div>
+            </div>
+          </div></div>
+        </div>
+        <hr  class='space '  style='height:px;' >
+        </hr>
+      </div>
+      <div id='53dd0398-8f75-70d0-4d77-94eac63cfb6d'  class='panel-footer ' >
+      </div>
+    </div>
+  </div>
+<script language="javascript" type="text/javascript">
+wcdfSettings = {
+  "author": "",
+  "description": "Dashboard répartition sociétaires",
+  "rendererType": "bootstrap",
+  "require": false,
+  "style": "Clean",
+  "title": "Dashboard Répartition Sociétaires",
+  "widget": false,
+  "widgetName": "",
+  "widgetParameters": []
+};
+
+Dashboards.addParameter("pCOAD", "");
+Dashboards.setParameterViewMode("pCOAD", "unused");
+
+Dashboards.addParameter("pCDEDEST", "7");
+Dashboards.setParameterViewMode("pCDEDEST", "unused");
+
+Dashboards.addParameter("pFAMILLE", "-1");
+Dashboards.setParameterViewMode("pFAMILLE", "unused");
+
+Dashboards.addParameter("pUTILISATEUR", "-1");
+Dashboards.setParameterViewMode("pUTILISATEUR", "unused");
+
+Dashboards.addParameter("pOEUVRE", "-1");
+Dashboards.setParameterViewMode("pOEUVRE", "unused");
+
+Dashboards.addParameter("pPAYS", "-1");
+Dashboards.setParameterViewMode("pPAYS", "unused");
+
+Dashboards.addParameter("pSERIE", "1");
+Dashboards.setParameterViewMode("pSERIE", "unused");
+
+var render_selectizeCOAD = {
+  type: "Query",
+  name: "render_selectizeCOAD",
+  priority: 5,
+  parameters: [],
+  executeAtStart: true,
+  listeners: [],
+  asynchronousMode: true,
+  preExecution: function pre() {
+    familleprefun();
+    utilprefun();
+    ide12prefun();
+    paysprefun();
+} ,
+  postFetch: function coadfun(data) {
+    var innerHTML='<select id="selectizeCOAD" multiple>';
+    innerHTML+='<option value="">Choisir un ou plusieurs COAD(s)...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlCOAD").html(innerHTML);
+      
+    // Init Selectize object
+    /*$('#selectizeCOAD').selectize({
+        valueField: 'id_coad',
+        labelField: 'label_coad',
+        searchField: 'label_coad',
+        create: false,   
+        render: {
+            option: function(item, escape) {
+                return '<div>'+item.label_coad+'</div>';
+            }
+        },
+        load: function(query, callback) {
+            if (!query.trim().length) return callback();
+            $.ajax({
+                url: 'http://ascione.sacem.fr:8082/pentaho/plugin/cda/api/doQuery?path=/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda&dataAccessId=COAD&parampCOADPreview=' + encodeURIComponent(query),
+                type: 'GET',
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    var newResultset = [];
+                    for (i = 0; i< res.resultset.length; i++) {
+                        newResultset.push({"id_coad":res.resultset[i][0], "label_coad":res.resultset[i][1]})
+                    }
+                    callback(newResultset);
+                }
+            });
+        },
+        onChange: function(value){
+            //removeBarChartData();
+            this.close();
+            Dashboards.fireChange('pCOAD', value!==null?value:-1);
+        }
+    });*/
+} ,
+  queryDefinition:  {
+    dataAccessId: "COAD",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_selectizeIDE12 = {
+  type: "Query",
+  name: "render_selectizeIDE12",
+  priority: 5,
+  parameters: [["dsCOAD","pCOAD"]],
+  executeAtStart: false,
+  listeners: ["pCOAD"],
+  asynchronousMode: true,
+  postFetch: function ide12fun(data) {
+    var innerHTML='<select id="selectizeOEUVRE" multiple>';
+    innerHTML+='<option value="">Choisir une ou plusieurs Oeuvre(s)...</option>';
+    innerHTML+='</select>';
+    
+    $("#htmlOEUVRE").html(innerHTML);
+    
+    /*$('#selectizeOEUVRE').selectize({
+        valueField: 'id_oeuvre',
+        labelField: 'label_oeuvre',
+        searchField: 'label_oeuvre',
+        create: false,
+        render: {
+            option: function(item, escape) {
+                return '<div>'+item.label_oeuvre+'</div>';
+            }
+        },
+        load: function(query, callback) {
+            url = 'http://ascione.sacem.fr:8082/pentaho/plugin/cda/api/doQuery?path=/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda&dataAccessId=OEUVRE&paramdsCOAD=';
+            url += pCOAD[0];
+            for (i = 1; i < pCOAD.length; i++) {
+                url += ';'+ pCOAD[i];
+            }
+            url += '&paramdsIDE12Preview=';
+            if (!query.trim().length) return callback();
+            $.ajax({
+                url: url + encodeURIComponent(query),
+                type: 'GET',
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    var newResultset = [];
+                    for (i = 0; i< res.resultset.length; i++) {
+                        newResultset.push({"id_oeuvre":res.resultset[i][0], "label_oeuvre":res.resultset[i][1]});
+                    }
+                    callback(newResultset);
+                }
+            });
+        },
+        onChange: function(value){
+            removeBarChartData();
+            //this.close();
+            Dashboards.fireChange('pOEUVRE', (value === '' || value === null)?-1:value);
+        }
+    });*/
+} ,
+  queryDefinition:  {
+    dataAccessId: "OEUVRE",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_selectizeFAMILLE = {
+  type: "Query",
+  name: "render_selectizeFAMILLE",
+  priority: 5,
+  parameters: [["dsCOAD","pCOAD"]],
+  executeAtStart: false,
+  listeners: ["pCOAD"],
+  asynchronousMode: true,
+  postFetch: function famillefun(data) {
+    var innerHTML='<select id="selectizeFAMILLE" multiple>';
+    innerHTML+='<option value="">Choisir une FAMILLE...</option>';
+    for(i=0; i<data.resultset.length; i++){
+        datarow = data.resultset[i];
+        innerHTML+="<option value='"+datarow[0]+"'>"+datarow[1]+"</option>";
+    }
+    innerHTML+='</select>';
+    
+    $("#htmlFAMILLE").html(innerHTML);
+        
+    // Init Selectize object
+    $('#selectizeFAMILLE').selectize({
+        onChange: function(value){
+            removeBarChartData();
+            //this.close();
+            Dashboards.fireChange('pFAMILLE', (value === '' || value === null)?-1:value);
+        }
+    });
+} ,
+  queryDefinition:  {
+    dataAccessId: "FAMILLE",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_selectizeUTILISATEUR = {
+  type: "Query",
+  name: "render_selectizeUTILISATEUR",
+  priority: 5,
+  parameters: [["dsCOAD","pCOAD"],["dsFAMILLE","pFAMILLE"]],
+  executeAtStart: false,
+  listeners: ["pCOAD","pFAMILLE"],
+  asynchronousMode: true,
+  postFetch: function utilfun(data) {
+    var innerHTML='<select id="selectizeUTILISATEUR" multiple>';
+    innerHTML+='<option value="">Choisir un Utilisateur...</option>';
+    for(i=0; i<data.resultset.length; i++){
+        datarow = data.resultset[i];
+        innerHTML+="<option value='"+datarow[0]+"'>"+datarow[1]+"</option>";
+    }
+    innerHTML+='</select>';
+    
+    $("#htmlUTILISATEUR").html(innerHTML);
+        
+    // Init Selectize object
+    $('#selectizeUTILISATEUR').selectize({
+        onChange: function(value){
+            removeBarChartData();
+            this.close();
+            Dashboards.fireChange('pUTILISATEUR', (value === '' || value === null)?-1:value);
+        }
+    });
+} ,
+  queryDefinition:  {
+    dataAccessId: "UTILISATEUR",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_selectizePAYS = {
+  type: "Query",
+  name: "render_selectizePAYS",
+  priority: 5,
+  parameters: [["dsCOAD","pCOAD"]],
+  executeAtStart: false,
+  listeners: ["pCOAD"],
+  asynchronousMode: true,
+  postFetch: function paysfun(data) {
+    var innerHTML='<select id="selectizePAYS" multiple>';
+    innerHTML+='<option value="">Choisir un Territoire...</option>';
+    for(i=0; i<data.resultset.length; i++){
+        datarow = data.resultset[i];
+        innerHTML+="<option value='"+datarow[0]+"'>"+datarow[1]+"</option>";
+    }
+    innerHTML+='</select>';
+    
+    $("#htmlPAYS").html(innerHTML);
+        
+    // Init Selectize object
+    $('#selectizePAYS').selectize({
+        onChange: function(value){
+            //removeBarChartData();
+            this.close();
+            Dashboards.fireChange('pPAYS', (value === '' || value === null)?-1:value);
+        }
+    });
+} ,
+  queryDefinition:  {
+    dataAccessId: "PAYS",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_LineBarRadio = {
+  type: "buttonComponent",
+  name: "render_LineBarRadio",
+  priority: 5,
+  htmlObject: "htmlLineBAR",
+  executeAtStart: true,
+  listeners: [],
+  postExecution: function fun() {
+    animateToggle();
+} ,
+  actionParameters: [],
+  actionDefinition:  {
+
+  },
+
+};
+
+var render_Graph = {
+  type: "Query",
+  name: "render_Graph",
+  priority: 5,
+  parameters: [["dsCOAD","pCOAD"],["dsOEUVRE","pOEUVRE"],["dsCDEDEST","pCDEDEST"],["dsUTILISATEUR","pUTILISATEUR"],["dsPAYS","pPAYS"],["dsFAMILLE","pFAMILLE"],["dsSERIE","pSERIE"]],
+  executeAtStart: true,
+  listeners: ["pCOAD","pCDEDEST","pFAMILLE","pUTILISATEUR","pOEUVRE","pPAYS","pSERIE"],
+  asynchronousMode: true,
+  postFetch: function pFetch(data) {
+    removeBarChartData();
+    
+    var newLabels = [];
+    var newValues = [];
+    var newSeries = [];
+    var distinctDates = [];
+    for (i = 0; i < data.resultset.length; i++) {
+        newLabels.push(data.resultset[i][0]);
+        newValues.push(data.resultset[i][1]);
+        newSeries.push(data.resultset[i][2]);
+    }
+
+    distinctDates = Array.from(new Set(newLabels));
+    distinctColors = Array.from(new Set(newSeries));
+    
+    var datac = [];    
+    var datab = [];
+    var zeroTest = [];
+    
+    for (j=0; j < distinctColors.length; j++) {
+        for (k=0; k < distinctDates.length; k++) {
+            var dataa = 0;
+            
+            for (l=0; l < data.resultset.length; l++) {
+                if (data.resultset[l][2] == distinctColors[j] && data.resultset[l][0] == distinctDates[k]) {
+                    dataa += data.resultset[l][1];
+                }
+            }
+            datab.push(dataa);
+            zeroTest.push(0);
+        }
+        if (distinctColors[j] !== null && zeroTest.toString() !== datab.toString()) {
+            console.log(datab);
+            console.log(zeroTest);
+            datac.unshift({label: distinctColors[j], 
+                data: datab,
+                backgroundColor: myPalette[j%6]});
+        }
+        datab = [];
+        zeroTest = [];
+    }
+    
+    buildNewChart('myBarChart', distinctDates, datac); 
+} ,
+  queryDefinition:  {
+    dataAccessId: "FactDATA",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_checkCDEDEST = {
+  type: "check",
+  name: "render_checkCDEDEST",
+  priority: 5,
+  parameter: "pCDEDEST",
+  htmlObject: "htmlCDEDEST",
+  listeners: [],
+  parameters: [],
+  valuesArray: [],
+  useFirstValue: true,
+  valueAsId: false,
+  executeAtStart: true,
+  queryDefinition:  {
+    dataAccessId: "CDEDEST",
+    path: "/public/Repartition/Dashboards Societaire/dashboard_repartition_societaires.cda"
+  },
+  datasourceProperties:  {
+
+  }
+};
+
+var render_radioSERIE = {
+  type: "radio",
+  name: "render_radioSERIE",
+  priority: 5,
+  parameter: "pSERIE",
+  htmlObject: "htmlRADIOSERIE",
+  listeners: [],
+  parameters: [["dsSERIE","pSERIE"]],
+  postFetch: function name() {
+    removeBarChartData();
+} ,
+  valuesArray: [["1","Global"],["2","RION"],["3","Utilisateur"],["4","Famille"],["5","Oeuvre"],["6","Pays"]],
+  valueAsId: false,
+  executeAtStart: true,
+  preExecution: function name() {
+    removeBarChartData();
+} ,
+  postExecution: function name() {
+    removeBarChartData();
+} ,
+  preChange: function name() {
+    removeBarChartData();
+} ,
+  postChange: function name() {
+    removeBarChartData();
+} ,
+  queryDefinition:  {
+
+  },
+
+};
+
+/*Dashboards.addComponents([render_selectizeCOAD, render_selectizeIDE12, render_selectizeFAMILLE, render_selectizeUTILISATEUR, render_selectizePAYS, render_LineBarRadio, render_Graph, render_checkCDEDEST, render_radioSERIE]);*/
+    
+Dashboards.addComponents([render_selectizeIDE12, render_selectizeFAMILLE, render_selectizeUTILISATEUR, render_selectizePAYS, render_LineBarRadio]);
+
+Dashboards.init();
+</script>
 
 		
-			<div id="footer">
-
-				
-					<ul class="copyright">
-						<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Powered by <a href="https://gohugo.io/">Hugo</a></li>
-					</ul>
-
-			</div>
-
+				<script type="text/javascript">
+		$( function(){
+				//$(".round").corner();
+				$(".cdfdd-round").corner();
+				$(".cdfdd-bevel").corner("bevel");
+				$(".cdfdd-notch").corner("notch");
+				$(".cdfdd-bite").corner("bite");
+				$(".cdfdd-bevel_top").corner("bevel top");
+				$(".cdfdd-dog_tr").corner("dog tr");
+			} ) ;
+		</script>
 		
-			<script src="/js/jquery.min.js"></script>
-			<script src="/js/jquery.scrolly.min.js"></script>
-			<script src="/js/jquery.scrollzer.min.js"></script>
-			<script src="/js/skel.min.js"></script>
-			<script src="/js/util.js"></script>
-			
-			<script src="/js/main.js"></script>
 
 	</body>
 </html>
+
+
